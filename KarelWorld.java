@@ -1,8 +1,7 @@
 /*  Author: William Krug
     Class: CSCI 1203-90
     Assignment: Assignment #6
-    Purpose: create a World for the Karel Robot to navigate, that is independent
-             of the ur_Robot/Robot
+    Purpose: create a World for the Karel Robot to navigate, that is independent of the ur_Robot/Robot
     FILE: KarelWorld.java  */
 
 package karel;
@@ -27,15 +26,12 @@ public class KarelWorld {
     map = atlas;
   }
 
-  /* check the list of InterestingIntersections for a beeper
-     at the desiganed corner */
+  /* check the list of InterestingIntersections for a beeper at the desiganed corner */
   public boolean getBeeperPresent(int st, int ave) {
     boolean beeperHere = false;
 
     for(int i = 0; i < intersections.size() && (beeperHere == false); i++) {
-      if((intersections.get(i).getStreet() == st) &&
-         (intersections.get(i).getAvenue() == ave) &&
-         (intersections.get(i).getBeeperCount() > 0)) {
+      if((intersections.get(i).getStreet() == st) && (intersections.get(i).getAvenue() == ave) && (intersections.get(i).getBeeperCount() > 0)) {
         beeperHere = true;
 
         if(verbose) {
@@ -58,9 +54,7 @@ public class KarelWorld {
 
     // pick up a beeper from a corner
     for(int i = 0; i < intersections.size() && (empty == false); i++) {
-      if((intersections.get(i).getStreet() == st) &&
-         (intersections.get(i).getAvenue() == ave) &&
-         (intersections.get(i).getBeeperCount() > 0)) {
+      if((intersections.get(i).getStreet() == st) && (intersections.get(i).getAvenue() == ave) && (intersections.get(i).getBeeperCount() > 0)) {
         intersections.get(i).decrementBeeperCount();
         empty = true;
 
@@ -68,11 +62,8 @@ public class KarelWorld {
           System.out.println("Beeper picked up");
         }
         // if last beeper at corner, flag for removal
-        if((intersections.get(i).getStreet() == st) &&
-           (intersections.get(i).getAvenue() == ave) &&
-           (intersections.get(i).getBeeperCount() == 0) &&
-           (intersections.get(i).getWallToTheNorth() == false) &&
-           (intersections.get(i).getWallToTheEast() == false)) {
+        if((intersections.get(i).getStreet() == st) && (intersections.get(i).getAvenue() == ave) && (intersections.get(i).getBeeperCount() == 0) &&
+           (intersections.get(i).getWallToTheNorth() == false) && (intersections.get(i).getWallToTheEast() == false)) {
           loc = i;
         }
       }
@@ -92,8 +83,7 @@ public class KarelWorld {
 
     // put down a beeper at the corner
     for(int i = 0; i < intersections.size() && (found == false); i++) {
-      if((intersections.get(i).getStreet() == st) &&
-         (intersections.get(i).getAvenue() == ave)) {
+      if((intersections.get(i).getStreet() == st) && (intersections.get(i).getAvenue() == ave)) {
         intersections.get(i).incrementBeeperCount();
         found = true;
 
@@ -103,11 +93,9 @@ public class KarelWorld {
 
       }
     }
-    /* create a new InterestingIntersections if the first beeper
-       is added to the corner */
+    /* create a new InterestingIntersections if the first beeper is added to the corner */
     if(!found) {
-      InterestingIntersections n = new InterestingIntersections(st,ave,1,false,
-                                                                false);
+      InterestingIntersections n = new InterestingIntersections(st,ave,1,false, false);
       intersections.add(n);
 
       if(verbose) {
@@ -120,9 +108,7 @@ public class KarelWorld {
     boolean wall = false;
 
     for(int i = 0; i < intersections.size() && (wall == false); i++) {
-      if((intersections.get(i).getStreet() == st) &&
-         (intersections.get(i).getAvenue() == ave) &&
-         (intersections.get(i).getWallToTheNorth())) {
+      if((intersections.get(i).getStreet() == st) && (intersections.get(i).getAvenue() == ave) && (intersections.get(i).getWallToTheNorth())) {
         wall = true;
 
         if(verbose) {
@@ -145,9 +131,7 @@ public class KarelWorld {
     boolean wall = false;
 
     for(int i = 0; i < intersections.size() && (wall == false); i++) {
-      if((intersections.get(i).getStreet() == (st - 1)) &&
-         (intersections.get(i).getAvenue() == ave) &&
-         (intersections.get(i).getWallToTheNorth())) {
+      if((intersections.get(i).getStreet() == (st - 1)) && (intersections.get(i).getAvenue() == ave) && (intersections.get(i).getWallToTheNorth())) {
         wall = true;
 
         if(verbose) {
@@ -170,9 +154,7 @@ public class KarelWorld {
     boolean wall = false;
 
     for(int i = 0; i < intersections.size() && (wall == false); i++) {
-      if((intersections.get(i).getStreet() == st) &&
-         (intersections.get(i).getAvenue() == ave) &&
-         (intersections.get(i).getWallToTheEast())) {
+      if((intersections.get(i).getStreet() == st) && (intersections.get(i).getAvenue() == ave) && (intersections.get(i).getWallToTheEast())) {
         wall = true;
 
         if(verbose) {
@@ -195,9 +177,7 @@ public class KarelWorld {
     boolean wall = false;
 
     for(int i = 0; i < intersections.size() && (wall == false); i++) {
-      if((intersections.get(i).getStreet() == st) &&
-         (intersections.get(i).getAvenue() == (ave - 1)) &&
-         (intersections.get(i).getWallToTheEast())) {
+      if((intersections.get(i).getStreet() == st) && (intersections.get(i).getAvenue() == (ave - 1)) && (intersections.get(i).getWallToTheEast())) {
         wall = true;
 
         if(verbose) {
@@ -231,7 +211,6 @@ public class KarelWorld {
   }
 
   public String toString() {
-    return ("There are " + intersections.size() +
-            " interesting intersections in this world");
+    return ("There are " + intersections.size() + " interesting intersections in this world");
   }
 }
