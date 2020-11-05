@@ -39,8 +39,7 @@ public class KarelWorldCreation {
       }
     }
     catch(IOException openFile) {
-      System.err.println("Unable to open file " + fileName + "\n" +
-                         openFile.toString());
+      System.err.println("Unable to open file " + fileName + "\n" + openFile.toString());
       System.exit(1);
     }
   }
@@ -58,8 +57,7 @@ public class KarelWorldCreation {
       for(int i = 0; i < numberOfCorners; i++) {
         avenue = input.readInt();
         street = input.readInt();
-        InterestingIntersections corner = new InterestingIntersections(street,
-                                                avenue, 0, true, false);
+        InterestingIntersections corner = new InterestingIntersections(street, avenue, 0, true, false);
         // add the "corner" to the InterestingIntersections ArrayList
         ur_Robot.world.intersections.add(corner);
       }
@@ -70,8 +68,7 @@ public class KarelWorldCreation {
       }
     }
     catch(IOException readHorizontalWalls) {
-      System.err.println("Error reading from " + fileName + "\n" +
-                         readHorizontalWalls.toString());
+      System.err.println("Error reading from " + fileName + "\n" + readHorizontalWalls.toString());
       System.exit(2);
     }
   }
@@ -93,11 +90,9 @@ public class KarelWorldCreation {
 
         // check the InterestingIntersections ArrayList to see
         // if the corner already exits
-        for(index = 0; index < ur_Robot.world.intersections.size() &&
-            (alreadyACorner == false); index++) {
+        for(index = 0; index < ur_Robot.world.intersections.size() && (alreadyACorner == false); index++) {
           // flag the index if the corner already exits
-          if((ur_Robot.world.intersections.get(index).getAvenue() == avenue) &&
-             (ur_Robot.world.intersections.get(index).getStreet() == street)) {
+          if((ur_Robot.world.intersections.get(index).getAvenue() == avenue) && (ur_Robot.world.intersections.get(index).getStreet() == street)) {
                alreadyACorner = true;
 
             if(verbose) {
@@ -111,14 +106,12 @@ public class KarelWorldCreation {
         }
         // if the corner doesn't exist, create a new intersection
         else {
-          InterestingIntersections corner = new
-                       InterestingIntersections(street, avenue, 0, false, true);
+          InterestingIntersections corner = new InterestingIntersections(street, avenue, 0, false, true);
           // add the "corner" to the InterestingIntersections ArrayList
           ur_Robot.world.intersections.add(corner);
 
           if(verbose) {
-            System.out.println("(" + avenue + "," + street +
-                               ") is a new corner");
+            System.out.println("(" + avenue + "," + street + ") is a new corner");
           }
         }
         alreadyACorner = false;
@@ -130,8 +123,7 @@ public class KarelWorldCreation {
       }
     }
     catch(IOException readVerticalWalls) {
-      System.err.println("Error reading from " + fileName + "\n" +
-                         readVerticalWalls.toString());
+      System.err.println("Error reading from " + fileName + "\n" + readVerticalWalls.toString());
       System.exit(2);
     }
   }
@@ -155,11 +147,9 @@ public class KarelWorldCreation {
 
         // check the InterestingIntersections ArrayList to see
         // if the corner already exits
-        for(index = 0; index < ur_Robot.world.intersections.size() &&
-            (alreadyACorner == false); index++) {
+        for(index = 0; index < ur_Robot.world.intersections.size() && (alreadyACorner == false); index++) {
           // flag the index if the corner already exits
-          if((ur_Robot.world.intersections.get(index).getAvenue() == avenue) &&
-             (ur_Robot.world.intersections.get(index).getStreet() == street)) {
+          if((ur_Robot.world.intersections.get(index).getAvenue() == avenue) && (ur_Robot.world.intersections.get(index).getStreet() == street)) {
                alreadyACorner = true;
 
             if(verbose) {
@@ -181,8 +171,7 @@ public class KarelWorldCreation {
           ur_Robot.world.intersections.add(corner);
 
           if(verbose) {
-            System.out.println("(" + avenue + "," + street +
-                               ") is a new corner");
+            System.out.println("(" + avenue + "," + street + ") is a new corner");
           }
         }
         alreadyACorner = false;
@@ -194,8 +183,7 @@ public class KarelWorldCreation {
       }
     }
     catch(IOException readBeepers) {
-      System.err.println("Error reading from " + fileName + "\n" +
-                         readBeepers.toString());
+      System.err.println("Error reading from " + fileName + "\n" + readBeepers.toString());
       System.exit(2);
     }
   }
@@ -209,8 +197,7 @@ public class KarelWorldCreation {
       }
     }
     catch(IOException closeFile) {
-      System.err.println("Error closing file " + fileName + "\n" +
-                         closeFile.toString());
+      System.err.println("Error closing file " + fileName + "\n" + closeFile.toString());
       System.exit(1);
     }
   }
