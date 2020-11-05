@@ -1,8 +1,7 @@
 /*  Author: William Krug
     Class: CSCI 1203-90
     Assignment: Assignment #5
-    Purpose: extend the ur_Robot class to provide additional functionality
-             in the form of Boolean tests
+    Purpose: extend the ur_Robot class to provide additional functionality in the form of Boolean tests
     FILE: Robot.java  */
 
 package karel;
@@ -192,8 +191,7 @@ public class Robot extends ur_Robot {
     if(getPoweredOn()) {
       // check location of other robot's in the World
       for(ur_Robot r : robotTracker) {
-        if((r.getStreet() == getStreet()) && (r.getAvenue() == getAvenue())
-           && (r != this)) {
+        if((r.getStreet() == getStreet()) && (r.getAvenue() == getAvenue()) && (r != this)) {
           buddy = true;
         }
       }
@@ -208,17 +206,13 @@ public class Robot extends ur_Robot {
   // enhanced toString() method
   public void display() {
     System.out.println("Robot Metrics:");
-    System.out.println("\t                Location: " + getStreet() +
-                       " St and " + getAvenue() + " Ave");
+    System.out.println("\t                Location: " + getStreet() + " St and " + getAvenue() + " Ave");
     System.out.println("\t               Direction: " + getDirection());
-    System.out.println("\tNumber of beepers in bag: " +
-                        getNumberOfBeepersInBag());
+    System.out.println("\tNumber of beepers in bag: " + getNumberOfBeepersInBag());
     System.out.println("\t                  On/Off: " + getPower());
   }
 
   public String toString() {
-    return ("St: " + getStreet() + " Ave: " + getAvenue() + " Dir: " +
-            getDirection() + " Beepers : " + getNumberOfBeepersInBag()
-            + " Power: " + getPower());
+    return ("St: " + getStreet() + " Ave: " + getAvenue() + " Dir: " + getDirection() + " Beepers : " + getNumberOfBeepersInBag() + " Power: " + getPower());
   }
 }
