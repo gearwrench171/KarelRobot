@@ -1,8 +1,7 @@
 /*  Author: William Krug
     Class: CSCI 1203-90
     Assignment: Assignment #6
-    Purpose: create a World for the Karel Robot to navigate, that is independent
-             of the ur_Robot/Robot
+    Purpose: create a World for the Karel Robot to navigate, that is independent of the ur_Robot/Robot
     FILE: InterestingIntersections.java  */
 
 package karel;
@@ -78,8 +77,7 @@ public class InterestingIntersections {
   }
 
   public String toString() {
-    return ("St: " + street + "  Ave: " + avenue + "  Beeper Count: " +
-            beeperCount + "  Wall to the North: " + wallToTheNorth +
+    return ("St: " + street + "  Ave: " + avenue + "  Beeper Count: " + beeperCount + "  Wall to the North: " + wallToTheNorth +
             "  Wall to the East: " + wallToTheEast);
   }
 }
