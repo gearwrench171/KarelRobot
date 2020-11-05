@@ -44,8 +44,7 @@ public class KarelPanel extends JPanel {
     // margin between panel bottom and "World"
     int bottomBorder = height - 75;
 
-    drawStreetsAndAvenues(g2D, width, streetCount, avenueCount, leftBorder,
-                          bottomBorder);
+    drawStreetsAndAvenues(g2D, width, streetCount, avenueCount, leftBorder, bottomBorder);
 
     drawBoundaryWalls(g2D, width, leftBorder, bottomBorder);
 
@@ -58,11 +57,8 @@ public class KarelPanel extends JPanel {
     drawIntersections(g2D, leftBorder, bottomBorder);
   }
 
-  private void drawStreetsAndAvenues(Graphics2D g2D, int width, int streetCount,
-                                     int avenueCount, int leftBorder,
-                                     int bottomBorder) {
-    /* to set the streets running from bottom to top and avenues running from
-       left to right:
+  private void drawStreetsAndAvenues(Graphics2D g2D, int width, int streetCount, int avenueCount, int leftBorder, int bottomBorder) {
+    /* to set the streets running from bottom to top and avenues running from left to right:
          x-coordinate = leftBorder + (avenue * 50)
          y-coordinate = bottomBorder - (street * 50) */
 
@@ -73,19 +69,16 @@ public class KarelPanel extends JPanel {
 
     // Draw the Streets
     for(int y = 0; y <= streetCount; y++) {
-      g2D.draw(new Line2D.Double(leftBorder, (bottomBorder - (y * 50)),
-                                 width, (bottomBorder - (y * 50))));
+      g2D.draw(new Line2D.Double(leftBorder, (bottomBorder - (y * 50)), width, (bottomBorder - (y * 50))));
     }
 
     // Draw the Avenues
     for(int x = 0; x <= avenueCount; x++) {
-      g2D.draw(new Line2D.Double((leftBorder + (x * 50)), 0,
-                                 (leftBorder + (x * 50)), bottomBorder));
+      g2D.draw(new Line2D.Double((leftBorder + (x * 50)), 0, (leftBorder + (x * 50)), bottomBorder));
     }
   }
 
-  private void drawBoundaryWalls(Graphics2D g2D, int width, int leftBorder,
-                                 int bottomBorder) {
+  private void drawBoundaryWalls(Graphics2D g2D, int width, int leftBorder, int bottomBorder) {
 
     // set boundary wall GUI characteristics
     g2D.setPaint(Color.black);
@@ -96,8 +89,7 @@ public class KarelPanel extends JPanel {
     g2D.draw(new Line2D.Double(leftBorder, 0, leftBorder, bottomBorder));
   }
 
-  private void labelStreets(Graphics2D g2D, int height, int streetCount,
-                            int bottomBorder) {
+  private void labelStreets(Graphics2D g2D, int height, int streetCount, int bottomBorder) {
 
     // label the axis
     String[] label = {"S","t","r","e","e","t"};
@@ -112,8 +104,7 @@ public class KarelPanel extends JPanel {
     }
   }
 
-  private void labelAvenues(Graphics2D g2D, int height, int width,
-                            int avenueCount, int leftBorder) {
+  private void labelAvenues(Graphics2D g2D, int height, int width, int avenueCount, int leftBorder) {
 
     // label the axis
     g2D.drawString("Avenue", ((width / 2) + 5), (height - 20));
@@ -199,8 +190,7 @@ public class KarelPanel extends JPanel {
     }
   }
 
-  private void drawBeepers(Graphics2D g2D, int street, int avenue, int beepers,
-                           int leftBorder, int bottomBorder) {
+  private void drawBeepers(Graphics2D g2D, int street, int avenue, int beepers, int leftBorder, int bottomBorder) {
     // center beeper on intersection by offsetting drawing box
     int beeperLeftOffset = leftBorder - 5;
     int beeperBottomOffset = bottomBorder -5;
@@ -212,100 +202,64 @@ public class KarelPanel extends JPanel {
     g2D.setColor(Color.BLUE);
 
     // draw beeper
-    g2D.draw(new Ellipse2D.Double((beeperLeftOffset + (avenue * 50)),
-                                 (beeperBottomOffset - (street * 50)), 10, 10));
+    g2D.draw(new Ellipse2D.Double((beeperLeftOffset + (avenue * 50)), (beeperBottomOffset - (street * 50)), 10, 10));
     // label beeper count
-    g2D.drawString(String.valueOf(beepers), (countLeftOffset + (avenue *50)),
-                   (countBottomOffset - (street * 50)));
+    g2D.drawString(String.valueOf(beepers), (countLeftOffset + (avenue *50)), (countBottomOffset - (street * 50)));
   }
 
-  private void drawRobotFacingNorth(Graphics2D g2D, int street, int avenue,
-                                    int leftBorder, int bottomBorder) {
-    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) - 10),
-                               (bottomBorder - (street * 50) + 10),
-                               (leftBorder + (avenue * 50) + 10),
+  private void drawRobotFacingNorth(Graphics2D g2D, int street, int avenue, int leftBorder, int bottomBorder) {
+    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) - 10), (bottomBorder - (street * 50) + 10), (leftBorder + (avenue * 50) + 10),
                                (bottomBorder - (street * 50) + 10)));
-    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) - 10),
-                               (bottomBorder - (street * 50) + 10),
-                               (leftBorder + (avenue * 50)),
+    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) - 10), (bottomBorder - (street * 50) + 10), (leftBorder + (avenue * 50)),
                                (bottomBorder - (street * 50) - 17.3)));
-    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50)),
-                               (bottomBorder - (street * 50) - 17.3),
-                               (leftBorder + (avenue * 50) + 10),
+    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50)), (bottomBorder - (street * 50) - 17.3), (leftBorder + (avenue * 50) + 10),
                                (bottomBorder - (street * 50) + 10)));
   }
 
-  private void drawRobotFacingSouth(Graphics2D g2D, int street, int avenue,
-                                    int leftBorder, int bottomBorder) {
-    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) - 10),
-                               (bottomBorder - (street * 50) - 10),
-                               (leftBorder + (avenue * 50) + 10),
+  private void drawRobotFacingSouth(Graphics2D g2D, int street, int avenue, int leftBorder, int bottomBorder) {
+    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) - 10), (bottomBorder - (street * 50) - 10), (leftBorder + (avenue * 50) + 10),
                                (bottomBorder - (street * 50) - 10)));
-    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) - 10),
-                               (bottomBorder - (street * 50) - 10),
-                               (leftBorder + (avenue * 50)),
+    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) - 10), (bottomBorder - (street * 50) - 10), (leftBorder + (avenue * 50)),
                                (bottomBorder - (street * 50) + 17.3)));
-    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50)),
-                               (bottomBorder - (street * 50) + 17.3),
-                               (leftBorder + (avenue * 50) + 10),
+    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50)), (bottomBorder - (street * 50) + 17.3), (leftBorder + (avenue * 50) + 10),
                                (bottomBorder - (street * 50) - 10)));
   }
 
-  private void drawRobotFacingEast(Graphics2D g2D, int street, int avenue,
-                                   int leftBorder, int bottomBorder) {
-    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) - 10),
-                               (bottomBorder - (street * 50) - 10),
-                               (leftBorder + (avenue * 50) - 10),
+  private void drawRobotFacingEast(Graphics2D g2D, int street, int avenue, int leftBorder, int bottomBorder) {
+    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) - 10), (bottomBorder - (street * 50) - 10), (leftBorder + (avenue * 50) - 10),
                                (bottomBorder - (street * 50) + 10)));
-    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) - 10),
-                               (bottomBorder - (street * 50) - 10),
-                               (leftBorder + (avenue * 50) + 17.3),
+    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) - 10), (bottomBorder - (street * 50) - 10), (leftBorder + (avenue * 50) + 17.3),
                                (bottomBorder - (street * 50))));
-    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) + 17.3),
-                               (bottomBorder - (street * 50)),
-                               (leftBorder + (avenue * 50) - 10),
+    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) + 17.3), (bottomBorder - (street * 50)), (leftBorder + (avenue * 50) - 10),
                                (bottomBorder - (street * 50) + 10)));
   }
 
-  private void drawRobotFacingWest(Graphics2D g2D, int street, int avenue,
-                                   int leftBorder, int bottomBorder) {
-    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) + 10),
-                               (bottomBorder - (street * 50) - 10),
-                               (leftBorder + (avenue * 50) + 10),
+  private void drawRobotFacingWest(Graphics2D g2D, int street, int avenue, int leftBorder, int bottomBorder) {
+    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) + 10), (bottomBorder - (street * 50) - 10), (leftBorder + (avenue * 50) + 10),
                                (bottomBorder - (street * 50) + 10)));
-    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) + 10),
-                               (bottomBorder - (street * 50) - 10),
-                               (leftBorder + (avenue * 50) - 17.3),
+    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) + 10), (bottomBorder - (street * 50) - 10), (leftBorder + (avenue * 50) - 17.3),
                                (bottomBorder - (street * 50))));
-    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) - 17.3),
-                               (bottomBorder - (street * 50)),
-                               (leftBorder + (avenue * 50) + 10),
+    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) - 17.3), (bottomBorder - (street * 50)), (leftBorder + (avenue * 50) + 10),
                                (bottomBorder - (street * 50) + 10)));
   }
 
-  private void drawWallToTheNorth(Graphics2D g2D, int street, int avenue,
-                                  int leftBorder, int bottomBorder) {
+  private void drawWallToTheNorth(Graphics2D g2D, int street, int avenue, int leftBorder, int bottomBorder) {
     // set wall GUI characteristics
     g2D.setColor(Color.BLACK);
     int offset = 25;
 
     // draw the wall halfway down the block
-    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) - offset),
-                               (bottomBorder - (street * 50) - offset),
-                               (leftBorder + (avenue * 50) + offset),
+    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) - offset), (bottomBorder - (street * 50) - offset), (leftBorder + (avenue * 50) + offset),
                                (bottomBorder - (street * 50) - offset)));
   }
 
-  private void drawWallToTheEast(Graphics2D g2D, int street, int avenue,
-                                 int leftBorder, int bottomBorder) {
+  private void drawWallToTheEast(Graphics2D g2D, int street, int avenue, int leftBorder, int bottomBorder) {
     // set wall GUI characteristics
     g2D.setColor(Color.BLACK);
     int offset = 25;
 
     // draw the wall halfway down the block
-    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) + offset),
-                               (bottomBorder - (street * 50) + offset),
-                               (leftBorder + (avenue * 50) + offset),
+    g2D.draw(new Line2D.Double((leftBorder + (avenue * 50) + offset), (bottomBorder - (street * 50) + offset), (leftBorder + (avenue * 50) + offset),
                                (bottomBorder - (street * 50) - offset)));
   }
 }
